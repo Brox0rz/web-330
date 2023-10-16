@@ -1,0 +1,72 @@
+/**
+    Author: Brock Hemsouvanh
+    Date: 10/16/23
+**/
+
+body.light-theme {
+    --text-color: #000;
+    --background-color: #fff;
+    --anchor-color: #4F3674;
+    --h1-background-color: #3c275a;
+    --h1-border-color: #D6A800;
+    --heading-background-color: #3c275a;
+    --heading-color: #fff;
+    --heading-border-color: #D6A800;
+    --anchor-hover-color: #4F3674;
+    --anchor-hover-background-color: #D6A800;
+    --card-background-color: #fff;
+    --card-title-color: #4F3674;
+    --btn-background-color: #4F3674;
+    --btn-color: #fff;
+    --btn-hover-background-color: #D6A800;
+    --btn-hover-color: #4F3674;
+    --input-border-color: #ccc;
+}
+
+body.dark-theme {
+    --text-color: #fafafa;
+    --background-color: #303030;
+    --anchor-color: #fff;
+    --h1-background-color: #9c27b0;
+    --h1-border-color: #9c27b0;
+    --heading-background-color: #424242;
+    --heading-color: #fff;
+    --heading-border-color: #424242;
+    --anchor-hover-color: #D176e1;
+    --anchor-hover-background-color: #303030;
+    --card-background-color: #424242;
+    --card-title-color: #D176e1;
+    --btn-background-color: #D176e1;
+    --btn-color: #fff;
+    --btn-hover-background-color: #7d4787;
+    --btn-hover-color: #fff;
+    --input-border-color: #303030;
+}
+
+{
+    
+}
+
+body {
+    font-family: 'Oswald', Verdana, Arial, sans-serif;
+    color: var(--text-color);
+    background: var(--background-color);
+}
+
+#icon-mode:hover {
+    cursor: pointer;
+}
+
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#icon-text {
+    padding-left: 10px;
+}
+
+.pull-right {
+    float: right;
+}
