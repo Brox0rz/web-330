@@ -1,2 +1,4 @@
-# web-330
-WEB 330 – Enterprise JavaScript II
+# WEB 330 – Enterprise JavaScript II
+## Contributors
+* Professor Richard Krasso
+* Brock Hemsouvanh
