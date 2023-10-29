@@ -1,5 +1,14 @@
 /* theme.js*/
 
+/**
+    Author: Brock Hemsouvanh
+    Original Theme Author: Professor Krasso
+    Date: 10/16/23
+
+    Theme File Description:
+    This file provides the styling for light and dark themes using JS functions to access CSS variables.
+**/
+
         /**
          * Set the default theme to light if one has not been set in the browsers localStorage
          */

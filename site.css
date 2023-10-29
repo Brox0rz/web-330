@@ -1,13 +1,12 @@
 /**
     Author: Brock Hemsouvanh
+    Original Theme Author: Professor Krasso
     Date: 10/16/23
-     */
 
-#container {
-    margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
+    Theme File Description:
+    This file provides the base styling for the overall site project.
+**/
+
 
 #icon-mode:hover {
     cursor: pointer;
@@ -68,4 +67,8 @@
 
 .full-width {
     width: 100%;
+}
+
+.card-title {
+
 }

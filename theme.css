@@ -1,6 +1,10 @@
 /**
     Author: Brock Hemsouvanh
+    Original Theme Author: Professor Krasso
     Date: 10/16/23
+
+    Theme File Description:
+    This file provides the styling for light and dark themes using CSS variables.
 **/
 
 body.light-theme {
@@ -43,12 +47,15 @@ body.dark-theme {
     --input-border-color: #303030;
 }
 
+/* Base Styles */
+
 body {
     font-family: 'Oswald', Verdana, Arial, sans-serif;
     color: var(--text-color);
     background: var(--background-color);
 }
 
+/* Link Styles */
 a {
     color: var(--anchor-color);
     text-decoration: none;
@@ -59,6 +66,7 @@ a {
     background-color: var(--anchor-hover-background-color);
     }
 
+    /* Header Styles */
 h1 {
     color: var(--heading-color);
     background-color: var(--h1-background-color);
@@ -77,10 +85,13 @@ h2, h3, h4 {
     cursor: pointer;
 }
 
+/* Padding for text next to the theme icon */
+
 #icon-text {
     padding-left: 10px;
 }
 
+/* Utility class to float toggle elements to the right */
 .pull-right {
     float: right;
 }
