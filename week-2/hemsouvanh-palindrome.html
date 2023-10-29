@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../theme.css">
+        <link rel="stylesheet" href="../site.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>WEB 330 – Enterprise JavaScript II</title>
+</head>      
+<body class="light-theme">
+    <i id="icon-mode" class="fa fa-toggle-off pull-right" onclick="toggleMode(this)" style="font-size:28px;">
+        <span id="icon-text"></span>
+    </i><br>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Palindrome App!</h1>
+        <div id="card-container">
+            <div class="card">
+                <div class="card-title">Palindrome Checker</div>
+                <div class="card-content">
+                    <label for="txtPhrase">Phrase Value:</label>
+                        <input type="text" id="txtPhrase" placeholder="Enter phrase here"><br>
+                        <button id="btnCheckPhrase" onclick="checkPalindrome()">Check Palindrome</button>
+                </div>
+            </div>
+            <div class="card">
+                <div id="assign-results" class="card-title">Palindrome Results</div>
+                <div id="assign-results-header" class="assign-results-text"></div>
+            </div>
+        </div>
+<script>
+        /** 
+        * hemsouvanh-palindrome.html
+        * Author: Brock Hemsouvanh
+        * Description: This script implements the js function to determine whether a user's input is a palindrome.
+        **/
+
+       function getTodaysDate() {
+          return new Date().toLocaleDateString('en-US')
+       }
+
+       function getLength(str) {
+          return str.length;
+       }
+
+       function reverse(str) {
+          return str.split('').reverse().join('');
+       }
+
+       function isPalindrome(str) {
+          return str === reverse(str);
+       }
+
+       document.getElementById('btnCheckPhrase').onclick = function() {
+          checkPalindrome();
+       }
+
+       function checkPalindrome() {
+    let txtPhrase = document.getElementById('txtPhrase').value.toLowerCase();
+    let assignResultsHeader = document.getElementById('assign-results-header');
+    let assignResults = document.getElementById('assign-results');
+
+    let today = getTodaysDate();
+    let len = getLength(txtPhrase);
+    let reversedPhrase = reverse(txtPhrase);
+
+    let smallerText = `<div class="smaller-text">Date: ${today}<br>Original Phrase: ${txtPhrase}<br>Reversed Phrase: ${reversedPhrase}<br>Phrase Length: ${len}</div>`;
+    let palindromeResult;
+
+    if (isPalindrome(txtPhrase)) {
+    palindromeResult = `${txtPhrase} <span class="underline">is</span> a palindrome!`; // Exhibit C
+} else {
+    palindromeResult = `${txtPhrase} <span class="underline">is not</span> a palindrome!`; // Exhibit D
+}
+
+
+    assignResultsHeader.innerHTML = `${smallerText}<br>${palindromeResult}`;
+}
+
+
+</script>
+        <footer>
+            <p><a href="../index.html" class="return-home">Return</a></p>
+        </footer>
+    </div>
+<script src="../theme.js"></script>
+</body>
+</html>
