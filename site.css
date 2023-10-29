@@ -42,20 +42,6 @@
     background-color: inherit;
 }
 
-.return-home {
-    color: #4F3674;
-    text-decoration: none;
-}
-
-.return-home:hover {
-    background-color: #D6A800;
-    color: #4F3674;
-}
-
-.return-home:visited {
-    color: #3c275a;
-}
-
 .form {
     display: inline-grid;
     grid-template-columns: auto;
@@ -69,6 +55,47 @@
     width: 100%;
 }
 
-.card-title {
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    margin: 2% auto;
+    width: 75%
+}
 
+div {
+    display: block;
+}
+
+.card-content {
+    font-size: 28px;
+    padding: 2px 16px;
+    line-height: 2.5;
+}
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    width: 48%;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+footer {
+margin-left: 12%;
+}
+
+/* for palindrome underlined text */
+.smaller-text {
+    font-size: 0.85em; /* Adjust as needed */
+    text-align: left;
+}
+
+.underline {
+    text-decoration: underline;
 }
