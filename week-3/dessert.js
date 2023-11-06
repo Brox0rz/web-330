@@ -1,15 +1,20 @@
-export function loadDesserts() {
-    const desserts = [
-        { name: 'Ice Cream', price: '4.30' },
-        { name: 'Chocolate Cake', price: '5.40' },
-        { name: 'Apple Pie', price: '3.80' }
-    ];
+import { Product } from './product.js';
 
-    const container = document.getElementById('desserts-container');
-    desserts.forEach(dessert => {
-        const item = document.createElement('div');
-        item.innerHTML = `<input type="checkbox" id="${dessert.name.toLowerCase().replace(/ /g, '-')}" name="desserts">
-                          <label for="${dessert.name.toLowerCase().replace(/ /g, '-')}">${dessert.name} ($${dessert.price})</label><br>`;
-        container.appendChild(item);
-    });
+export class Dessert extends Product {
+
 }
+
+const desserts = [
+    { name: 'Soda', price: '3.30' },
+    { name: 'Sweet Tea', price: '3.30' },
+    { name: 'Iced Coffee', price: '2.49' },
+    { name: 'Dignity', price: '2.15' }
+];
+
+    const container = document.getElementById('beverages-container');
+beverages.forEach(beverage => {
+  const item = document.createElement('div');
+  item.innerHTML = `<input type="checkbox" id="${beverage.name.toLowerCase().replace(/ /g, '-')}" name="beverages">
+                    <label for="${beverage.name.toLowerCase().replace(/ /g, '-')}">${beverage.name} ($${beverage.price})</label><br>`;
+  container.appendChild(item);
+});

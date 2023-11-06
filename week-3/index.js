@@ -46,18 +46,18 @@ function loadBeverages() {
   }
 
         // Function to load main courses
-function loadMaincourses() {
+function loadCourses() {
     const container = document.getElementById('main-courses-container');
     container.innerHTML = '';
-    for (const [mainCourse, price] of Object.entries(mainCoursePrices)) {
+    for (const [course, price] of Object.entries(coursePrices)) {
       const label = document.createElement('label');
-      label.htmlFor = mainCourse;
-      label.textContent = `${mainCourse.replace(/-/g, ' ')} - $${price.toFixed(2)}`;
+      label.htmlFor = course;
+      label.textContent = `${course.replace(/-/g, ' ')} - $${price.toFixed(2)}`;
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
-      checkbox.id = mainCourse;
-      checkbox.name = 'mainCourse';
-      checkbox.value = mainCourse;
+      checkbox.id = course;
+      checkbox.name = 'course';
+      checkbox.value = course;
       label.insertBefore(checkbox, label.firstChild);
       container.appendChild(label);
       container.appendChild(document.createElement('br'));
