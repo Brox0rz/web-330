@@ -17,6 +17,8 @@ export class CalorieConverter {
   }
 }
 
+// ...
+
 document.getElementById('btnSearch').addEventListener('click', function() {
     const txtFoodItem = document.getElementById('txtFoodItem').value;
     const foods = CalorieConverter.find(txtFoodItem);
@@ -39,10 +41,14 @@ document.getElementById('btnSearch').addEventListener('click', function() {
     // Close the table body and table tags
     tableData += '</tbody></table>';
   
-    // Insert the table into the page and display the results card
-    document.getElementById('searchResults').innerHTML = tableData;
-    document.getElementById('searchCard').style.display = 'block'; // Make sure to show the results
+    // Insert the table into the page and display the results div
+    const searchResultsDiv = document.getElementById('searchResults');
+    searchResultsDiv.innerHTML = tableData;
+    searchResultsDiv.style.display = 'block'; // Make sure to show the results
   });
+  
+  // ...
+  
   
   
 
