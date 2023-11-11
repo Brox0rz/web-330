@@ -17,19 +17,34 @@ export class CalorieConverter {
   }
 }
 
-// Assuming you have a div with id="searchResults" where you want to display results
 document.getElementById('btnSearch').addEventListener('click', function() {
-  const txtFoodItem = document.getElementById('txtFoodItem').value;
-  const foods = CalorieConverter.find(txtFoodItem);
-  let tableData = '<table>';
-
-  for (const food of foods) {
-    tableData += `<tr><td>${food.name}</td><td>${food.calories}</td></tr>`;
-  }
-
-  tableData += '</table>';
-  document.getElementById('searchResults').innerHTML = tableData;
-});
+    const txtFoodItem = document.getElementById('txtFoodItem').value;
+    const foods = CalorieConverter.find(txtFoodItem);
+  
+    // Start the table with the "table" class and include the table head
+    let tableData = `<table class="table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Calories</th>
+                          </tr>
+                        </thead>
+                        <tbody>`;
+  
+    // Loop through each food item and create a row
+    for (const food of foods) {
+      tableData += `<tr><td>${food.name}</td><td>${food.calories}</td></tr>`;
+    }
+  
+    // Close the table body and table tags
+    tableData += '</tbody></table>';
+  
+    // Insert the table into the page and display the results card
+    document.getElementById('searchResults').innerHTML = tableData;
+    document.getElementById('searchCard').style.display = 'block'; // Make sure to show the results
+  });
+  
+  
 
 // Event listener for the Enter key
 document.getElementById('txtFoodItem').addEventListener('keyup', function(event) {
