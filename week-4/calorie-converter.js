@@ -47,11 +47,7 @@ document.getElementById('btnSearch').addEventListener('click', function() {
     searchResultsDiv.style.display = 'block'; // Make sure to show the results
   });
   
-  // ...
   
-  
-  
-
 // Event listener for the Enter key
 document.getElementById('txtFoodItem').addEventListener('keyup', function(event) {
   if (event.key === 'Enter') {

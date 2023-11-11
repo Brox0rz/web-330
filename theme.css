@@ -163,8 +163,8 @@ button#btnSearch:hover {
 }
 
 .table tr:hover {
-    background-color: var(--table-hover-background-color);
-    color: var(--table-hover-color);
+    background-color: var(--table-tr-hover-background-color);
+    color: var(--table-tr-hover-color);
     cursor: pointer;
 }
 
