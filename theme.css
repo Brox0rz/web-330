@@ -25,7 +25,13 @@ body.light-theme {
     --btn-hover-background-color: #D6A800;
     --btn-hover-color: #4F3674;
     --input-border-color: #ccc;
+    --table-header-background-color: #4F3674;
+    --table-header-color: #fff;
+    --table-border-color: #ddd;
+    --table-tr-hover-background-color: #D6A800;
+    --table-tr-hover-color: #4F3674;
 }
+
 
 body.dark-theme {
     --text-color: #fafafa;
@@ -45,7 +51,13 @@ body.dark-theme {
     --btn-hover-background-color: #7d4787;
     --btn-hover-color: #fff;
     --input-border-color: #303030;
+    --table-header-background-color: #D176E1;
+    --table-header-color: #fff;
+    --table-border-color: #303030;
+    --table-tr-hover-background-color: #7D4787;
+    --table-tr-hover-color: #fff;
 }
+
 
 /* Base Styles */
 body {
@@ -115,4 +127,48 @@ h2, h3, h4 {
     content: "";
     display: table;
     clear: both;
+}
+
+/* button theme colorings for the restaurant app page */
+button#btnOrder {
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+}
+
+button#btnOrder:hover {
+    background-color: var(--btn-hover-background-color);
+    color: var(--btn-hover-color);
+}
+
+/* button and table theme colorings for the calorie app page */
+button#btnSearch {
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+}
+
+button#btnSearch:hover {
+    background-color: var(--btn-hover-background-color);
+    color: var(--btn-hover-color);
+}
+
+.table th {
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+    border: 1px solid var(--table-border-color);
+    padding: 10px;
+}
+
+.table td {
+    border: 1px solid var(--table-border-color);
+    padding: 10px
+}
+
+.table tr:hover {
+    background-color: var(--table-hover-background-color);
+    color: var(--table-hover-color);
+    cursor: pointer;
+}
+
+.table {
+    display:block;
 }
