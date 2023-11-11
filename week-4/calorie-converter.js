@@ -1,3 +1,10 @@
+/*  Author: Brock Hemsouvanh
+    Original Theme Author: Professor Krasso
+    Date: 11/11/23
+    calorie-converter.js Description: provides an array of data for certain 
+    foods and their calorie counts to be represented on a table grid.
+*/
+
 import { FoodModel } from './food-model.js';
 
 export class CalorieConverter {
@@ -16,8 +23,6 @@ export class CalorieConverter {
     );
   }
 }
-
-// ...
 
 document.getElementById('btnSearch').addEventListener('click', function() {
     const txtFoodItem = document.getElementById('txtFoodItem').value;
@@ -44,7 +49,7 @@ document.getElementById('btnSearch').addEventListener('click', function() {
     // Insert the table into the page and display the results div
     const searchResultsDiv = document.getElementById('searchResults');
     searchResultsDiv.innerHTML = tableData;
-    searchResultsDiv.style.display = 'block'; // Make sure to show the results
+    searchResultsDiv.style.display = 'block';
   });
   
 
