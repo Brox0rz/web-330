@@ -2,9 +2,8 @@
     Author: Brock Hemsouvanh
     Original Theme Author: Professor Krasso
     Date: 10/16/23
-
-    Theme File Description:
-    This file provides the styling for light and dark themes using CSS variables.
+    Theme File Description: This file provides the styling for light and 
+    dark themes using CSS variables.
 **/
 
 body.light-theme {
@@ -170,5 +169,6 @@ button#btnSearch:hover {
 }
 
 .table {
-    display:block;
+    margin: auto;
+    width: 75%;
 }
