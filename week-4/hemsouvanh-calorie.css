@@ -1,0 +1,14 @@
+/* hemsouvanh-calorie.css
+    Author: Brock Hemsouvanh
+    Original author: Professor Richard Krasso
+    Description: Application which provides a search function to call up 
+    certain foods and view their calorie co
+    Date: 11/11/23
+*/
+
+#foodList {
+    float: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
