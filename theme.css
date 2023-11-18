@@ -172,3 +172,9 @@ button#btnSearch:hover {
     margin: auto;
     width: 75%;
 }
+
+/* button theme colorings for the bob's auto repair app page */
+button#btnAddProduct {
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+}
