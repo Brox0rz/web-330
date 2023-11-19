@@ -1,3 +1,11 @@
+/**
+    Author: Brock Hemsouvanh
+    Original Author: Professor Krasso
+    Date: 11/18/23
+    shopping-cart.js Description: This class represents a shopping cart
+    containing the products selected. 
+**/
+
 
 export class ShoppingCart {
     constructor() {

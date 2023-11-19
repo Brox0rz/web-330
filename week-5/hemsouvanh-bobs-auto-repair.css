@@ -1,19 +1,19 @@
 /**
     Author: Brock Hemsouvanh
     Original Author: Professor Krasso
-    Updated: 11/17/23
+    Updated: 11/18/23
     Description:
     This file provides the styling specifically for the Bob's Auto Repair Shop project.
 **/
 
-/* Container for centering the content */
+/* Container for centering and spacing the content */
 #container {
     width: 80%;
     margin: 0 auto;
 }
 
 .drop-down-menu {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -34,4 +34,15 @@ button:hover {
 /* Hover effect for <i> tags */
 i:hover {
     cursor: pointer;
+}
+
+#btnAddProduct {
+    margin: 10px; 
+  }
+  
+  #cartInstruction {
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin: 20px;
 }
