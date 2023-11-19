@@ -3,8 +3,7 @@
 /**
     Author: Brock Hemsouvanh
     Original Theme Author: Professor Krasso
-    Date: 10/16/23
-
+    Date: 10/16/23 (updated 11/18/23)
     Theme File Description:
     This file provides the styling for light and dark themes using JS functions to access CSS variables.
 **/
@@ -12,7 +11,26 @@
         /**
          * Set the default theme to light if one has not been set in the browsers localStorage
          */
+        function setDefaultTheme() {
+            if (!localStorage.getItem('mode')) {
+                localStorage.setItem('mode', 'light-theme'); // Set a default theme
+                localStorage.setItem('iconMode', 'fa-toggle-off');
+                localStorage.setItem('iconText', 'Light Mode');
+                applyTheme();
+            } else {
+                applyTheme(); // Apply the theme if it's already set in localStorage
+            }
+        }
+        
+        function applyTheme() {
+            document.body.className = localStorage.getItem('mode');
+            document.getElementById('icon-mode').className = `fa ${localStorage.getItem('iconMode')} pull-right`;
+            document.getElementById('icon-text').textContent = localStorage.getItem('iconText');
+        }
+        
+        // Call setDefaultTheme when the script loads
         setDefaultTheme();
+        
 
         /**
          * Function to switch the users selected website theme
