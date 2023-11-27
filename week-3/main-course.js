@@ -1,8 +1,8 @@
 import { Product } from './product.js';
 
-export class MainCourse extends Product {
+export class MainCourse extends Product {}
 
-}
+export function loadMainCourses() {
 
 const mainCourses = [
     { name: 'Vegan Burger', price: '9.99' },
@@ -18,3 +18,4 @@ mainCourses.forEach(course => {
                     <label for="${course.name.toLowerCase().replace(/ /g, '-')}">${course.name} ($${course.price})</label><br>`;
   container.appendChild(item);
 });
+}
