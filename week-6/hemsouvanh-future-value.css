@@ -6,18 +6,10 @@
     Description: Styling for the Future Value App
  */
 
-.card-content .danger {
+ .danger {
   float: right;
   color: #df546a;
   font-size: 12px;
-  letter-spacing: 2px;
-  display:none;
- }
-
- .danger {
-  float: right;
-  color: #df546a !important;
-  font-size: 12px !important;
   letter-spacing: 2px;
   display:none;
  }
