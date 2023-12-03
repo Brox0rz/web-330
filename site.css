@@ -61,12 +61,6 @@
     width: 75%
 }
 
-#card-container {
-  display: flex;
-  justify-content: center; /* Center the cards horizontally */
-  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
-}
-
 div {
     display: block;
 }
@@ -74,6 +68,7 @@ div {
 .card-content {
     font-size: 28px;
     padding: 20px;
+    justify-content: center;
 }
 .card-title {
     text-align: center;
