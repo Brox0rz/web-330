@@ -16,8 +16,8 @@
 
  .danger {
   float: right;
-  color: #df546a;
-  font-size: 12px;
+  color: #df546a !important;
+  font-size: 12px !important;
   letter-spacing: 2px;
   display:none;
  }
