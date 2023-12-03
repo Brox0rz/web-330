@@ -74,3 +74,19 @@
 .col-10 { width: var(--col-10); }
 .col-11 { width: var(--col-11); }
 .col-12 { width: var(--col-12); }
+
+.card-content .danger {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+  display:none;
+ }
+
+ .danger {
+  float: right;
+  color: #df546a !important;
+  font-size: 12px !important;
+  letter-spacing: 2px;
+  display:none;
+ }
