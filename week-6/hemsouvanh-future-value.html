@@ -1,0 +1,137 @@
+<!-- 
+============================================
+; Title:  hemsouvanh-future-value.html
+; Original Author: Richard Krasso
+; Contributing Author: Brock Hemsouvanh
+; Date:   26, Nov, 2023
+; Description: Landing page for the future value program.
+;===========================================
+*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../theme.css">
+        <link rel="stylesheet" href="../site.css">
+        <link rel="stylesheet" type="text/css" href="flex-layout.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>WEB 330 – Enterprise JavaScript II</title>
+</head>      
+<body class="light-theme">
+    <i id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size:28px;" onclick="toggleMode(this)">
+        <span id="icon-text"></span>
+    </i><br>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Future Value App!</h1>
+        <div id="errorLog" class="danger" style="display:none;"></div> <!-- Initially hidden -->
+        <div id="card-container" class="row">
+            <div class="card col-12">
+                <div class="card-title">Future Value Calculator</div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-5 form-label">Monthly Payment:</div>
+                        <div class="col-7">
+                            <input type="text" id="txtMonthlyPayment" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 form-label">Interest Rate:</div>
+                        <div class="col-7">
+                            <input type="text" id="txtYearlyRate" class="form-control">
+                            <i class="danger">Enter 11% as 11.1</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 form-label">Number of Years:</div>
+                        <div class="col-7">
+                            <select id="listNumOfYears" class="drop-down-menu">
+                                <!-- Populate options for years 1-10 using JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button id="btnCalculate" class="btn">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12">
+                <div class="card-title">Calculation as of <span id="today"></span></div>
+                <div id="futureValue" class="card-content"></div>
+            </div>
+        </div>
+        <footer>
+            <p><a href="../index.html" class="return-home">Return</a></p>
+        </footer>
+    </div>
+    <script type="module" src="validator.js"></script>
+    <script type="module" src="finance-calculator.js"></script>
+    <script src="../theme.js"></script>
+    <script type="module">
+        import Validator from "./validator.js";
+        import FinanceCalculator from "./finance-calculator.js";
+
+        // Populate the years dropdown
+        const yearsDropdown = document.getElementById('listNumOfYears');
+        for (let year = 1; year <= 10; year++) {
+            let option = document.createElement('option');
+            option.value = year;
+            option.text = year;
+            yearsDropdown.appendChild(option);
+        }
+
+        // Set today's date
+        document.getElementById('today').textContent = new Date().toLocaleDateString("en-US");
+
+        // Event listener for the Calculate button
+        document.getElementById('btnCalculate').addEventListener('click', calculateFutureValue);
+
+        function calculateFutureValue() {
+            let monthlyPayment = document.getElementById("txtMonthlyPayment").value;
+            let rate = document.getElementById("txtYearlyRate").value;
+            let years = document.getElementById("listNumOfYears").value;
+            let errorLogEl = document.getElementById("errorLog");
+            
+            let monthlyPaymentValidator = new Validator("Monthly Payment", monthlyPayment);
+            monthlyPaymentValidator.addRequiredField();
+            monthlyPaymentValidator.addRequiredFloatField();
+            monthlyPaymentValidator.addFloatMinField(100);
+            
+            let rateValidator = new Validator("Interest Rate", rate);
+            rateValidator.addRequiredField();
+            rateValidator.addRequiredFloatField();
+            rateValidator.addFloatMaxField(100);
+            
+            let errorLog = [];
+            
+            if (!monthlyPaymentValidator.validate()) {
+                for (let msg of monthlyPaymentValidator.messages) {
+                    errorLog.push(msg);
+                }
+            }
+            
+            if (!rateValidator.validate()) {
+                for (let msg of rateValidator.messages) {
+                    errorLog.push(msg);
+                }
+            }
+            
+            if (errorLog.length > 0) {
+                errorLogEl.innerHTML = errorLog.join("<br>");
+                errorLogEl.style.display = "block";
+            } else {
+                errorLogEl.style.display = "none";
+                // Calculate future value and update the display
+                let futureValue = FinanceCalculator.calculateFutureValue(monthlyPayment, rate, years);
+                let futureValueFormatted = FinanceCalculator.convertToCurrency(futureValue);
+                document.getElementById("futureValue").innerHTML = `The future value is ${futureValueFormatted}`;
+            }
+        }
+    </script>
+</body>
+</html>

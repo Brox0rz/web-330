@@ -1,0 +1,19 @@
+/**
+    Title: hemsouvanh-future-value.css
+    Author: Brock Hemsouvanh
+    Original Author: Professor Krasso
+    Date: 11/28/2023
+    Description: Styling for the Future Value App
+ */
+
+ .danger {
+  float: right;
+  color: df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+ }
+
+ .form-label {
+  display: in-line-block;
+  padding-top: 1rem;
+ }
