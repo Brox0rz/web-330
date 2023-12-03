@@ -61,6 +61,10 @@
     width: 75%
 }
 
+#card-container {
+    width: 75%;
+}
+
 div {
     display: block;
 }
