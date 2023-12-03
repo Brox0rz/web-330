@@ -6,6 +6,13 @@
     This file provides the base styling for the overall site project.
 **/
 
+body {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  min-height: 100vh; /* Full height of the viewport */
+  margin: 0; /* Remove default body margin */
+}
 
 #icon-mode:hover {
     cursor: pointer;
