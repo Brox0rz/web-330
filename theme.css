@@ -178,3 +178,14 @@ button#btnAddProduct {
     background-color: var(--btn-background-color);
     color: var(--btn-color);
 }
+
+/* button theme colorings for the Future Value app page */
+button#btnCalculate {
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+}
+
+button#btnCalculate:hover {
+    background-color: var(--btn-hover-background-color);
+    color: var(--btn-hover-color);
+}
