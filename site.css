@@ -105,3 +105,9 @@ margin-left: 12%;
     text-decoration: underline;
 }
 
+.danger {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+ }
