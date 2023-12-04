@@ -6,15 +6,25 @@
     Description: Styling for the Future Value App
  */
 
- .danger {
+.danger {
   float: right;
   color: #df546a;
   font-size: 12px;
   letter-spacing: 2px;
- }
+}
 
- .form-label {
+.form-label {
   display: inline-block;
   padding-top: 1rem;
- }
+  text-align: right;
+  margin-right: 10px;
+}
 
+ .form-control {
+    width: 100%; /* This will make them fill their container */
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+.drop-down-menu {
+    width: 25%;
+}
