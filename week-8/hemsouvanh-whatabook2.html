@@ -22,7 +22,7 @@
       <span id="icon-text"></span>
   </i><br>
     <div id="container">
-        <h1 class="app-header">Welcome to the WhatABook, Part 1 App!</h1>
+        <h1 class="app-header">Welcome to the WhatABook, Part 2 App!</h1>
         <div id="card-container">
             <div class="card">
                 <div class="card-title">Book Listing</div>
@@ -42,12 +42,14 @@
         </footer>
     </div>
     <script src="../theme.js"></script>
-  <script>
+  <script type="module">
+    import { HttpClient } from './http-client.js';
+    const http = new HttpClient();
 // Event listener for when the DOM is fully loaded, then run function
 document.addEventListener('DOMContentLoaded', () => {    // event handler
-  let fileName = "books.xml";
+  let fileName = "../week-7/books.xml";
   
-  fetch(fileName)  // the peppermint butler of JS functions
+  fetch(fileName)  // "the peppermint butler of JS functions"
     .then(res => res.text())
     .then(data => {
       const parser = new DOMParser();
@@ -63,29 +65,47 @@ document.addEventListener('DOMContentLoaded', () => {    // event handler
 function loadBooks(xml) {
   const booksElement = document.getElementById('bookList');
   const books = xml.getElementsByTagName('book');
-  let tableData = '<table id="bookTable" class="table">';
-  tableData += '<tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr>';
-
-  for (let book of books) {  
-    const isbn = book.getElementsByTagName('isbn')[0].textContent;
-    const title = book.getElementsByTagName('title')[0].textContent;
-    const description = book.getElementsByTagName('description')[0].textContent;
-    const pages = book.getElementsByTagName('pages')[0].textContent;
-    const authors = book.getElementsByTagName('authors')[0].textContent;
-
-    // backticks are cool bc they allow us to make custom indentations in the middle of strings
-    tableData += `<tr> 
-                    <td data-value="ISBN"><a href="#" class="isbn-link" data-isbn="${isbn}">${isbn}</a></td>
-                    <td data-value="Title">${title}</td>
-                    <td data-value="Description">${description}</td>
-                    <td data-value="Pages">${pages}</td>
-                    <td data-value="Authors">${authors}</td>
-                  </tr>`;
-  }
-
-  tableData += '</table>';
+  let tableData = buildHtmlString(Array.from(books), 'table');
   booksElement.innerHTML = tableData;
   addIsbnClickEvents();
+}
+
+function buildHtmlString(books, format) {
+  if (!Array.isArray(books)) {
+    // Handle the case where books is not an array
+    console.error("Invalid books data:", books);
+    return "";
+  }
+  let tableString = '<table id="bookTable" class="table"><tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr>';
+  let ulString = '<ul style="list-style-type: none;">';
+
+  for (let book of books) {
+    const isbn = book.getElementsByTagName('isbn')[0].textContent;
+    const title = book.getElementsByTagName('title')[0].textContent;
+    const description = book.getElementsByTagName('description')[0].textContent || "N/A";
+    const pages = book.getElementsByTagName('pages')[0].textContent || "N/A";
+    const authors = book.getElementsByTagName('authors')[0].textContent || "N/A";
+
+    // backticks are cool bc they allow us to make custom indentations in the middle of strings
+    tableString += `<tr>
+                      <td><a href="#" class="isbn-link">${isbn}</a></td>
+                      <td>${title}</td>
+                      <td>${description}</td>
+                      <td>${pages}</td>
+                      <td>${authors}</td>
+                    </tr>`;
+
+    ulString += `<li><strong>ISBN:</strong> ${isbn}</li>
+                 <li><strong>Title:</strong> ${title}</li>
+                 <li><strong>Description:</strong> ${description}</li>
+                 <li><strong>Pages:</strong> ${pages}</li>
+                 <li><strong>Authors:</strong> ${authors}</li>`;
+  }
+
+  tableString += '</table>';
+  ulString += '</ul>';
+
+  return format === 'table' ? tableString : ulString;
 }
 
 function anchorClicked(e) {
@@ -122,6 +142,53 @@ function addIsbnClickEvents() {  // querySelector parses the same way CSS select
   }
 }
 
+const isbns = [
+  '0345339681',
+  '0261103571',
+  '9780593099322',
+  '9780261102361',
+  '9780261102378',
+  '9780590353427',
+  '9780316769532',
+  '9780743273565',
+  '9780590405959'
+];
+
+const params = {
+  "bibkeys": 'ISBN:${isbns.join(",")}',
+  "format": "json",
+  "jscmd": "details"
+};
+
+  function getBook(event) {
+  event.preventDefault();
+  const isbnElement = event.target;
+  const isbn = isbnElement.innerText || isbnElement.textContent; 
+  const params = {
+    "bibkeys": `ISBN:${isbn}`,
+    "format": "json",
+    "jscmd": "details"
+  };
+  http.get('https://openlibrary.org/api/books', params).then(res => {
+  console.log(res => {
+    console.log("Response Object:", res); // troubleshooting res structure because "books is not iterable"
+  });
+
+    // Call buildHtmlString with the 'res' object and the string 'table'
+    document.getElementById('bookListing').innerHTML = buildHtmlString(res, 'table');
+    
+    addIsbnClickEvents();
+  })
+  .catch(e => {
+    console.log(e);
+  })
+  document.addEventListener('DOMContentLoaded', () => {
+  const isbnLinks = document.querySelectorAll('.isbn-link');
+  isbnLinks.forEach(link => {
+    link.addEventListener('click', getBook);
+  });
+});
+}
   </script>
 </body>
 </html>
