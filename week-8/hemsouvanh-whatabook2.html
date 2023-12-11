@@ -170,9 +170,6 @@ const params = {
     "jscmd": "details"
   };
   http.get('https://openlibrary.org/api/books', params).then(res => {
-  console.log(res => {
-    console.log("Response Object:", res); // troubleshooting res structure because "books is not iterable"
-  });
 
     // Call buildHtmlString with the 'res' object and the string 'table'
     document.getElementById('bookListing').innerHTML = buildHtmlString(res, 'table');
