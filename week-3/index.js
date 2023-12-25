@@ -9,14 +9,6 @@ import { loadDesserts } from './dessert.js';
 
 let currentBill = new Bill();
 
- // Call the function to load appetizers on page load
- document.addEventListener('DOMContentLoaded', () => {
-  loadAppetizers();
-  loadBeverages();
-  loadMainCourses();
-  loadDesserts();
-});
-
 document.getElementById('btnOrder').addEventListener('click', () => {
   currentBill = new Bill(); // Reset the bill for a new order
 })
